@@ -11,28 +11,29 @@ import org.testng.annotations.AfterMethod;
 
 public class loginTest {
 	WebDriver driver;
+	String baseUrl="http://localhost/project/login.php";
+	String Email ="ahamed1@gmail.com";
+	String Password="nafly@12345";
+	
   @BeforeMethod
   public void beforeMethod() {
 	  System.setProperty("webdriver.chrome.driver", "C:\\chromedriver-win64\\chromedriver.exe");
 	   driver = new ChromeDriver();
   }
 
-  @AfterMethod
-  public void afterMethod() {
-	  System.out.println("TEST IS FINISHED");
-  }
+
 
 
   @Test
   public void mainTest() throws InterruptedException {
-	   driver.get("http://localhost/project/login.php");
+	   driver.get(baseUrl);
 	   driver.manage().window().maximize();
 
 	   WebElement useremailField = driver.findElement(By.id("email"));
-	   useremailField.sendKeys("ahamed1@gmail.com");
+	   useremailField.sendKeys(Email);
 	   Thread.sleep(1000);
 	   WebElement userpassField =driver.findElement(By.id("password"));
-	   userpassField.sendKeys("nafly@12345");
+	   userpassField.sendKeys(Password);
 	   Thread.sleep(1000);
 	   driver.findElement(By.id("btn")).click();
 	   
@@ -70,5 +71,9 @@ public class loginTest {
 	   //btn	           
         driver.findElement(By.name("order_btn")).click();
         
+  }
+  @AfterMethod
+  public void afterMethod() {
+	  System.out.println("TEST IS FINISHED");
   }
 }
