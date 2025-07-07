@@ -14,6 +14,9 @@ public class loginTest {
 	String baseUrl="http://localhost/project/login.php";
 	String Email ="ahamed1@gmail.com";
 	String Password="nafly@12345";
+	String name="ahamed";
+	String num="0755555555";
+
 	
   @BeforeMethod
   public void beforeMethod() {
@@ -53,9 +56,9 @@ public class loginTest {
 	   Thread.sleep(1000);
 	  //Place Your Order
 	   
-	   driver.findElement(By.name("name")).sendKeys("ahamed");Thread.sleep(1000);
-        driver.findElement(By.name("number")).sendKeys("0771234567");Thread.sleep(1000);
-        driver.findElement(By.name("email")).sendKeys("ahamed@gmail.com");Thread.sleep(1000);
+	   driver.findElement(By.name("name")).sendKeys(name);Thread.sleep(1000);
+        driver.findElement(By.name("number")).sendKeys(num);Thread.sleep(1000);
+        driver.findElement(By.name("email")).sendKeys(Email);Thread.sleep(1000);
 
         Select ratingDropdown = new Select(driver.findElement(By.name("method")));
         ratingDropdown.selectByValue("cash on delivery");Thread.sleep(1000);
